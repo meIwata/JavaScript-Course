@@ -83,7 +83,7 @@ console.log(x);
 // 比較運算符
 console.log(ageJonas > ageBrain); 
 console.log(ageJonas <= 18); // >= 大於等於
-*/
+
 
 // 基礎數學運算
 const now = 2025;
@@ -100,3 +100,21 @@ console.log(x, y);
 
 const averageAge = (ageBrain + ageJonas) / 2;
 console.log(ageBrain, ageJonas, averageAge);
+*/
+
+// const massMark = 78;
+// const heightMark = 1.69;
+// const massJohn = 92;
+// const heightJohn = 1.95;
+const massMark = 95;
+const heightMark = 1.88;
+const massJohn = 85;
+const heightJohn = 1.76;
+
+
+
+const bmiMark = massMark / heightMark ** 2;
+const bmiJohn = massJohn / (heightJohn * heightJohn);
+const markHigherBMI = bmiMark > bmiJohn;
+
+console.log(bmiMark, bmiJohn, markHigherBMI);

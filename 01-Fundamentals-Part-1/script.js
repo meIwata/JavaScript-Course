@@ -61,13 +61,9 @@ job = 'teacher'; // 這是合法的
 
 lastName = 'Schmedtmann'; // 這是合法的，因為 lastName 沒有使用 let 或 const 聲明
 console.log(lastName); // 這會輸出 'Schmedtmann'
-*/
 
-// 基礎數學運算
-const now = 2025;
 
-const ageBrain = now - 1991;
-const ageJonas = now - 2018;
+
 console.log(ageBrain, ageJonas); // 可以使用逗點來輸出多個值
 console.log(ageBrain * 2, ageJonas / 10, 2 ** 3); // 可以使用算術運算符來計算值
 //2**3 是 2 的 3 次方，等於 8
@@ -87,6 +83,20 @@ console.log(x);
 // 比較運算符
 console.log(ageJonas > ageBrain); 
 console.log(ageJonas <= 18); // >= 大於等於
+*/
 
-const isFullAge = ageJonas >= 18; // 判斷是否成年
+// 基礎數學運算
+const now = 2025;
+
+const ageBrain = now - 1991;
+const ageJonas = now - 2018;
+// const isFullAge = ageJonas >= 18; // 判斷是否成年
 console.log(now - 1991 > now - 2018); // 比較兩個年齡
+console.log(25 - 10 - 5);
+
+let x, y;
+x = y = 25 - 10 - 5;
+console.log(x, y); 
+
+const averageAge = (ageBrain + ageJonas) / 2;
+console.log(ageBrain, ageJonas, averageAge);

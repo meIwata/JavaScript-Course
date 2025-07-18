@@ -28,7 +28,7 @@ let job1 = "programmer";
 let job2 = "teacher";
 
 console.log(myFirstJob);
-*/
+
 
 let javascriptIsFun = true;
 // console.log(javascriptIsFun);
@@ -47,3 +47,18 @@ year = 1991;
 console.log(typeof year);
 
 console.log(typeof null);
+*/
+
+let age = 30;
+age = 31;
+
+const BIRTHYEAR = 1991; //常數不可再被重新賦值 
+// BIRTHYEAR = 1990;
+
+// const job; // 會報錯，常數必須在宣告時賦值
+
+var job = 'programmer'; // var 可以重新賦值
+job = 'teacher'; // 這是合法的
+
+lastName = 'Schmedtmann'; // 這是合法的，因為 lastName 沒有使用 let 或 const 聲明
+console.log(lastName); // 這會輸出 'Schmedtmann'

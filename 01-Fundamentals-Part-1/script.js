@@ -157,7 +157,7 @@ if (birthYear <= 2000) {
     century = 21;
 }
 console.log(century); 
-*/
+
 
 // CHALLENGE #2
 const massMark = 78;
@@ -169,7 +169,6 @@ const BMIMark = massMark / (heightMark ** 2);
 const BMIJohn = massJohn / (heightJohn * heightJohn);
 console.log(BMIMark, BMIJohn);
 
-/* Write your code below. Good luck! 🙂 */
 
 let result;
 if (BMIMark > BMIJohn) {
@@ -179,3 +178,23 @@ if (BMIMark > BMIJohn) {
     result = `John's BMI ${BMIJohn} is higher than Mark's ${BMIMark}!`;
     console.log(result);
 }
+
+*/
+
+// 轉換和強制類型轉換
+const inputYear = '1991';
+console.log(typeof(Number(inputYear)), typeof(inputYear)); 
+console.log(Number(inputYear), inputYear); 
+console.log(inputYear + 18); // 字串加數字會轉成字串
+console.log(Number(inputYear) + 18); // 使用 Number() 轉換字串為數字
+console.log(Number('Jonas')); // 無法轉換非數字字串，結果為 NaN
+console.log(typeof NaN); // NaN 是一個特殊的數字類型，表示非數字
+console.log(String(23), 12);
+
+console.log('I am ' + 23 + ' years old'); // 字串加數字會轉成字串
+console.log('23' - '10' - 3); // 字串減數字會轉成數字
+console.log('23' + '10' + 3); // 字串加字串會連接成一個字串
+
+let n = '1' + 1; // 11
+n = n - 1; // 10
+console.log(n);

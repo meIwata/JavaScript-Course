@@ -100,7 +100,7 @@ console.log(x, y);
 
 const averageAge = (ageBrain + ageJonas) / 2;
 console.log(ageBrain, ageJonas, averageAge);
-*/
+
 
 // const massMark = 78;
 // const heightMark = 1.69;
@@ -118,3 +118,24 @@ const bmiJohn = massJohn / (heightJohn * heightJohn);
 const markHigherBMI = bmiMark > bmiJohn;
 
 console.log(bmiMark, bmiJohn, markHigherBMI);
+*/
+
+const firstName = 'Jonas';
+const job = 'teacher';
+const birthYear = 1991;
+const year = 2037;
+const jonas = "I'm " + firstName + ", a " + (year - birthYear) + " years old " + job + "!"; // 使用加號來連接字串
+console.log(jonas);
+
+const jonasNew = `I'm ${firstName}, a ${year - birthYear} years old ${job}!`; // 使用模板字串（Template Literals）來創建字串
+console.log(jonasNew);
+
+console.log(`Just a regular string...`); // 使用反引號來創建普通字串
+console.log(`String with \n\
+    multiple \n\
+    lines`
+);
+console.log(`String with
+    multiple
+    lines`); // 使用反引號來創建多行字串
+    

@@ -138,7 +138,7 @@ console.log(`String with \n\
 console.log(`String with
     multiple
     lines`); // 使用反引號來創建多行字串
-*/
+
 
 const age = 19;
 const isOldEnough = age >= 18;
@@ -157,3 +157,25 @@ if (birthYear <= 2000) {
     century = 21;
 }
 console.log(century); 
+*/
+
+// CHALLENGE #2
+const massMark = 78;
+const heightMark = 1.69;
+const massJohn = 92;
+const heightJohn = 1.95;
+
+const BMIMark = massMark / (heightMark ** 2);
+const BMIJohn = massJohn / (heightJohn * heightJohn);
+console.log(BMIMark, BMIJohn);
+
+/* Write your code below. Good luck! 🙂 */
+
+let result;
+if (BMIMark > BMIJohn) {
+    result = `Mark's BMI ${BMIMark} is higher than John's ${BMIJohn}!`;
+    console.log(result);
+} else {
+    result = `John's BMI ${BMIJohn} is higher than Mark's ${BMIMark}!`;
+    console.log(result);
+}

@@ -118,7 +118,7 @@ const bmiJohn = massJohn / (heightJohn * heightJohn);
 const markHigherBMI = bmiMark > bmiJohn;
 
 console.log(bmiMark, bmiJohn, markHigherBMI);
-*/
+
 
 const firstName = 'Jonas';
 const job = 'teacher';
@@ -138,4 +138,22 @@ console.log(`String with \n\
 console.log(`String with
     multiple
     lines`); // 使用反引號來創建多行字串
-    
+*/
+
+const age = 19;
+const isOldEnough = age >= 18;
+if (isOldEnough) {
+    console.log("You can start driving license 🚗");
+} else {
+    const yearsLeft = 19 - age;
+    console.log(`You are too young. Wait another ${yearsLeft} years 😉`);
+}
+
+const birthYear = 2018;
+let century;
+if (birthYear <= 2000) {
+    century = 20;
+} else {
+    century = 21;
+}
+console.log(century); 

@@ -51,7 +51,7 @@ console.log(typeof null);
 let age = 30;
 age = 31;
 
-const BIRTHYEAR = 1991; //常數不可再被重新賦值 
+const BIRTHYEAR = 1991; //常數不可再被重新賦值
 // BIRTHYEAR = 1990;
 
 // const job; // 會報錯，常數必須在宣告時賦值
@@ -81,7 +81,7 @@ x--;
 console.log(x);
 
 // 比較運算符
-console.log(ageJonas > ageBrain); 
+console.log(ageJonas > ageBrain);
 console.log(ageJonas <= 18); // >= 大於等於
 
 
@@ -96,7 +96,7 @@ console.log(25 - 10 - 5);
 
 let x, y;
 x = y = 25 - 10 - 5;
-console.log(x, y); 
+console.log(x, y);
 
 const averageAge = (ageBrain + ageJonas) / 2;
 console.log(ageBrain, ageJonas, averageAge);
@@ -156,7 +156,7 @@ if (birthYear <= 2000) {
 } else {
     century = 21;
 }
-console.log(century); 
+console.log(century);
 
 
 // CHALLENGE #2
@@ -183,8 +183,8 @@ if (BMIMark > BMIJohn) {
 
 // 轉換和強制類型轉換
 const inputYear = '1991';
-console.log(typeof(Number(inputYear)), typeof(inputYear)); 
-console.log(Number(inputYear), inputYear); 
+console.log(typeof(Number(inputYear)), typeof(inputYear));
+console.log(Number(inputYear), inputYear);
 console.log(inputYear + 18); // 字串加數字會轉成字串
 console.log(Number(inputYear) + 18); // 使用 Number() 轉換字串為數字
 console.log(Number('Jonas')); // 無法轉換非數字字串，結果為 NaN
@@ -362,7 +362,7 @@ if (23 > 10) {
 
 const me = 'Jonas';
 console.log(`I'm ${2037 - 1991} years old ${me}`);
-*/
+
 
 const age = 18;
 // age >= 18 ? console.log("You can drink wuine 🍷") : console.log("You are not allow to drink wine 🍷");
@@ -379,3 +379,10 @@ if (age >= 18) {
 console.log(drink2);
 
 console.log(`I like to drink ${age >= 18 ? 'wine 🍷' : 'water 💧'}`);
+*/
+
+// CHALLENGE #4
+// Steven needs a very simple tip calculator for whenever he goes to eat in a restaurant. In his country, it's usual to tip 15% if the bill value is between 50 and 300. If the value is different, the tip is 20%.
+const bill = 430;
+const tip = bill <= 300 && bill >= 50 ? bill * 0.15 : bill * 0.2;
+console.log(`The bill was ${bill}, the tip was ${tip}, and the total value ${bill + tip}`);

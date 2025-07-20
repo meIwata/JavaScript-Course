@@ -199,7 +199,7 @@ let n = '1' + 1; // 11
 n = n - 1; // 10
 console.log(n);
 
-*/
+
 
 // 五種falsy values(假值)是：0, '', undefined, null, NaN
 // 所有其他值都是truthy values(真值)
@@ -222,4 +222,27 @@ if (height) {
     console.log("YAY! Height is defined");
 } else {
     console.log("Height is UNDEFINED"); // height 為 undefined，這是 falsy value，所以會執行 else 區塊
+}
+
+*/
+
+const age = '18';
+if (age === 18) console.log("You just became an adult (strict)"); // === 是 嚴格等於 比較運算符
+if (age == 18) console.log("You just became an adult (loose)"); // == 是 鬆散等於 比較運算符
+console.log(18 === 18);
+console.log(18 === 19);
+
+// const favorite = prompt("What's your favorite number?"); // 使用 prompt() 來獲取使用者輸入
+const favorite = Number(prompt("What's your favorite number?")); // 將輸入轉換為數字類型
+console.log(favorite);
+console.log(typeof favorite);
+if (favorite === 23) { // 這裡的23是數字類型
+    console.log("Cool! 23 is an amazing number!");
+} else if (favorite === 7) {
+    console.log("7 is also a cool number!");
+} else {
+    console.log("Number is not 23 or 7");
+}
+if (favorite !== 23) { // !== 是 不等於 比較運算符
+    console.log("Why not 23?");
 }

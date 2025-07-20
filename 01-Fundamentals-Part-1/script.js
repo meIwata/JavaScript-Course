@@ -224,7 +224,7 @@ if (height) {
     console.log("Height is UNDEFINED"); // height 為 undefined，這是 falsy value，所以會執行 else 區塊
 }
 
-*/
+
 
 const age = '18';
 if (age === 18) console.log("You just became an adult (strict)"); // === 是 嚴格等於 比較運算符
@@ -245,4 +245,28 @@ if (favorite === 23) { // 這裡的23是數字類型
 }
 if (favorite !== 23) { // !== 是 不等於 比較運算符
     console.log("Why not 23?");
+}
+
+*/
+
+const hasDriversLicense = true;
+const hasGoodVision = true;
+console.log(hasDriversLicense && hasGoodVision); // AND 運算符
+console.log(hasDriversLicense || hasGoodVision); // OR 運算符
+console.log(!hasDriversLicense);
+
+// 使用邏輯運算符來決定是否可以開車
+// if (hasDriversLicense && hasGoodVision) {
+//     console.log("Sarah is able to drive!");
+// } else {
+//     console.log("Someone else should drive...");
+// }
+
+const isTired = false;
+console.log(hasDriversLicense && hasGoodVision && isTired);
+
+if (hasDriversLicense && hasGoodVision && !isTired) {
+    console.log("Sarah is able to drive!");
+} else {
+    console.log("Someone else should drive...");
 }

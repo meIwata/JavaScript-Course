@@ -52,7 +52,7 @@ const age2 = calcAge2(1991);
 
 console.log(age1, age2); // 印出計算出的年齡
 
-*/
+
 
 // 箭頭函式
 const calcAge3 = birthYear => 2037 - birthYear; // 箭頭函式，計算年齡並返回
@@ -67,3 +67,19 @@ const yearsUntilRetirement = (birthYear, firstName) => {
 }
 console.log(yearsUntilRetirement(1991, 'Anna')); // 呼叫函式並印出距離退休的年數
 console.log(yearsUntilRetirement(1980, 'Bob')); 
+*/
+
+function cutFruitPeices(fruit) {
+    return fruit * 3; // 將水果切成四片並返回片數
+}
+
+
+function fruitProcessor(apples, oranges) {
+    // 呼叫 cutFruitPeices 函式來切水果
+    const applePieces = cutFruitPeices(apples); // 將蘋果切片
+    const orangePieces = cutFruitPeices(oranges); // 將橘子切片
+    const juice = `Juice with ${apples} apples and ${oranges} oranges, which is ${applePieces} pieces of apple and ${orangePieces} pieces of orange.`;
+    return juice;
+}
+// 呼叫 fruitProcessor 函式，傳入蘋果和橘子的數量
+console.log(fruitProcessor(2, 3)); // 印出果汁描述字串

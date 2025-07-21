@@ -34,7 +34,7 @@ console.log(appleOrangeJuice); // 印出結果
 const num = Number('23'); // 將字串 '23' 轉換為數字
 console.log(num); // 印出數字 23
 
-*/
+
 
 // 函數聲明
 const age1 = calcAge1(1991);
@@ -51,3 +51,19 @@ const calcAge2 = function (birthYear) {
 const age2 = calcAge2(1991);
 
 console.log(age1, age2); // 印出計算出的年齡
+
+*/
+
+// 箭頭函式
+const calcAge3 = birthYear => 2037 - birthYear; // 箭頭函式，計算年齡並返回
+const age3 = calcAge3(1991); // 呼叫箭頭函式，傳入1991年作為出生年份
+console.log(age3); // 印出計算出的年齡
+
+const yearsUntilRetirement = (birthYear, firstName) => {
+    const age = 2037 - birthYear; // 計算年齡
+    const retirementAge = 65; // 定義退休年齡
+    // return retirementAge - age; // 返回距離退休的年數
+    return `${firstName} retires in ${retirementAge - age} years.`; // 返回一個描述退休年數的字串
+}
+console.log(yearsUntilRetirement(1991, 'Anna')); // 呼叫函式並印出距離退休的年數
+console.log(yearsUntilRetirement(1980, 'Bob')); 

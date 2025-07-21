@@ -8,7 +8,7 @@ if (hasDriversLicense) console.log('I can drive :D');
 
 // const interface = 'Audio';
 // const private = 534;
-*/
+
 
 function logger(){
     console.log('My name is Luis');
@@ -33,3 +33,21 @@ console.log(appleOrangeJuice); // 印出結果
 
 const num = Number('23'); // 將字串 '23' 轉換為數字
 console.log(num); // 印出數字 23
+
+*/
+
+// 函數聲明
+const age1 = calcAge1(1991);
+function calcAge1(birthYear) {
+    return 2037 - birthYear; // 計算年齡並返回
+}
+
+
+// 函數表達式
+// const age2 = calcAge2(1991); // 不同於函數聲明，函數表達式在被定義之前不能被呼叫
+const calcAge2 = function (birthYear) {
+    return 2037 - birthYear; // 計算年齡並返回
+}
+const age2 = calcAge2(1991);
+
+console.log(age1, age2); // 印出計算出的年齡

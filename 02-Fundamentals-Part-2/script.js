@@ -67,7 +67,7 @@ const yearsUntilRetirement = (birthYear, firstName) => {
 }
 console.log(yearsUntilRetirement(1991, 'Anna')); // 呼叫函式並印出距離退休的年數
 console.log(yearsUntilRetirement(1980, 'Bob')); 
-*/
+
 
 function cutFruitPeices(fruit) {
     return fruit * 3; // 將水果切成四片並返回片數
@@ -83,3 +83,25 @@ function fruitProcessor(apples, oranges) {
 }
 // 呼叫 fruitProcessor 函式，傳入蘋果和橘子的數量
 console.log(fruitProcessor(2, 3)); // 印出果汁描述字串
+*/
+
+
+const calcAge = function (year) {
+    return 2037 - year; // 計算年齡並返回
+}
+
+const yearsUntilRetirement = function (birthYear, firstName) {
+    const age = calcAge(birthYear);
+    const retirement = 65 - age;
+
+    if (retirement > 0) {
+        console.log(`${firstName} retires in ${retirement} years.`); // 返回一個描述退休年數的字串
+        return retirement;
+    } else {
+        console.log(`${firstName} has already retired.`); // 如果已經退休，返回-1
+        return -1;
+    }
+}
+
+console.log(yearsUntilRetirement(1991, 'Luis')); // 呼叫函式並印出距離退休的年數
+console.log(yearsUntilRetirement(1950, 'Luis')); 

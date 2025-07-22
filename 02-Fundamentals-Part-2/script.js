@@ -98,8 +98,8 @@ const yearsUntilRetirement = function (birthYear, firstName) {
         console.log(`${firstName} retires in ${retirement} years.`); // 返回一個描述退休年數的字串
         return retirement;
     } else {
-        console.log(`${firstName} has already retired.`); // 如果已經退休，返回-1
-        return -1;
+        console.log(`${firstName} has already retired for ${Math.abs(retirement)} years.`); // 使用絕對值
+        return -1; // 如果已經退休，返回-1
     }
 }
 

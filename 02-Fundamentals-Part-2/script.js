@@ -106,7 +106,7 @@ const yearsUntilRetirement = function (birthYear, firstName) {
 console.log(yearsUntilRetirement(1991, 'Luis')); // 呼叫函式並印出距離退休的年數
 console.log(yearsUntilRetirement(1950, 'Luis')); 
 
-*/
+
 
 const calcAverage = (a, b, c) => (a + b + c) / 3;
 console.log(calcAverage(3, 4, 5)); // 印出平均值
@@ -134,3 +134,41 @@ scoreDolphins = calcAverage(85, 54, 41);
 scoreKoalas = calcAverage(23, 34, 27);
 console.log(scoreDolphins, scoreKoalas);
 checkWinner(scoreDolphins, scoreKoalas); 
+
+*/
+
+const friend1 = 'Michael';
+const friend2 = 'Steven';
+const friend3 = 'Peter';
+const friends = ['Michael', 'Steven', 'Peter']; // 使用陣列來儲存朋友的名字
+console.log(friends);
+
+const y = new Array(1991, 1984, 2008, 2020);
+console.log(friends[0]); // 印出第一個朋友的名字
+console.log(friends[2]); // 印出第三個朋友的名字
+
+console.log(friends.length);
+console.log(friends[friends.length - 1]);
+
+friends[2] = 'Jay';
+console.log(friends);
+// friends = ['Luis', 'Bob']; // 不可重新賦值給 friends 陣列
+
+const firstName = 'Luis';
+const luis = [firstName, 'Garcia', 2037 - 1991, 'teacher', friends];
+console.log(luis);
+console.log(luis.length);
+
+// 練習
+const calcAge = function (birthYear) {
+    return 2037 - birthYear;
+}
+const years = [1990, 1967, 2002, 2010, 2018];
+
+const age1 = calcAge(years[0]);
+const age2 = calcAge(years[1]);
+const age3 = calcAge(years[years.length - 1]);
+console.log(age1, age2, age3);
+
+const ages = [calcAge(years[0]), calcAge(years[1]), calcAge(years[years.length - 1])];
+console.log(ages); // 印出計算出的年齡

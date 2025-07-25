@@ -172,7 +172,7 @@ console.log(age1, age2, age3);
 
 const ages = [calcAge(years[0]), calcAge(years[1]), calcAge(years[years.length - 1])];
 console.log(ages); // 印出計算出的年齡
-*/
+
 
 // 練習：陣列方法 - push() 和 pop() 類似堆疊的操作
 // 添加方法：push() 在陣列末尾添加元素，pop() 從陣列末尾移除元素
@@ -204,3 +204,20 @@ if (friends.includes('Steven')) {
 } else {
     console.log('You do not have a friend called Steven');
 } 
+*/
+
+const calcTip = function (bill) {
+    return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2; // 根據消費金額計算小費
+}
+
+// const calcTip = bill => bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2; // 使用箭頭函式計算小費
+
+const bills = [125, 555, 44];
+const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])]; // 計算每筆帳單的小費
+// const totals = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]]; // 計算每筆帳單的總金額
+// console.log(bills, tips, totals); // 印出帳單、小費和總金
+
+for (let i = 0; i < bills.length; i++) {
+    const total = bills[i] + tips[i];
+    console.log(`帳單：${bills[i]}，小費：${tips[i]}，總金額：${total}`);
+}

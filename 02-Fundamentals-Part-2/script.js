@@ -135,7 +135,7 @@ scoreKoalas = calcAverage(23, 34, 27);
 console.log(scoreDolphins, scoreKoalas);
 checkWinner(scoreDolphins, scoreKoalas); 
 
-*/
+
 
 const friend1 = 'Michael';
 const friend2 = 'Steven';
@@ -172,3 +172,35 @@ console.log(age1, age2, age3);
 
 const ages = [calcAge(years[0]), calcAge(years[1]), calcAge(years[years.length - 1])];
 console.log(ages); // 印出計算出的年齡
+*/
+
+// 練習：陣列方法 - push() 和 pop() 類似堆疊的操作
+// 添加方法：push() 在陣列末尾添加元素，pop() 從陣列末尾移除元素
+const friends = ['Michael', 'Steven', 'Peter'];
+const newLength = friends.push('Jay'); // 在陣列末尾添加一個新朋友
+console.log(friends);
+console.log(newLength);
+
+friends.unshift('John'); // 在陣列開頭添加一個新朋友
+console.log(friends);
+
+// 移除方法：pop() 從陣列末尾移除元素，shift() 從陣列開頭移除元素
+friends.pop();
+console.log(friends);
+
+friends.shift(); // 從陣列開頭移除第一個朋友
+console.log(friends);
+
+console.log(friends.indexOf('Steven')); // 查找 'Steven' 在陣列中的索引
+console.log(friends.indexOf('Bob')); // 查找 'Bob' 在陣列中的索引（不存在時返回 -1）
+friends.push(23); // 在陣列末尾添加一個數字
+
+console.log(friends.includes('Steven')); // 檢查 'Steven' 是否在陣列中
+console.log(friends);
+console.log(friends.includes(23)); // 檢查數字 23 是否在
+
+if (friends.includes('Steven')) {
+    console.log('You have a friend called Steven');
+} else {
+    console.log('You do not have a friend called Steven');
+} 

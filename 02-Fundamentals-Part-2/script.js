@@ -204,7 +204,7 @@ if (friends.includes('Steven')) {
 } else {
     console.log('You do not have a friend called Steven');
 } 
-*/
+
 
 const calcTip = function (bill) {
     return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2; // 根據消費金額計算小費
@@ -221,3 +221,13 @@ for (let i = 0; i < bills.length; i++) {
     const total = bills[i] + tips[i];
     console.log(`帳單：${bills[i]}，小費：${tips[i]}，總金額：${total}`);
 }
+*/
+
+// Objects 鍵值對
+const jonas = {
+    firstName: 'Jonas',
+    lastName: 'Schmedtmann',
+    age: 2037 - 1991,
+    job: 'teacher',
+    friends: ['Michael', 'Steven', 'Peter']
+};

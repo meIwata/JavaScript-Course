@@ -233,6 +233,7 @@ const jonas = {
 };
 */
 
+/*
 const jonas = {
     firstName: 'Jonas',
     lastName: 'Schmedtmann',
@@ -267,3 +268,20 @@ console.log(jonas);
 // Challenge
 // "Jonas has 3 friends, and his best friend is called Michael."
 console.log(`${jonas.firstName} has ${jonas.friends.length} friends, and his best friend is called ${jonas.friends[0]}.`);
+ */
+
+const jonas = {
+    firstName: 'Jonas',
+    lastName: 'Schmedtmann',
+    birthYear: 1991,
+    job: 'teacher',
+    friends: ['Michael', 'Steven', 'Peter'],
+    hasDriversLicense: true,
+
+    calAge: function () {
+        // return 2037 - jonas.birthYear;
+        return 2037 - this.birthYear;
+    }
+};
+
+console.log(jonas.calAge(1991));

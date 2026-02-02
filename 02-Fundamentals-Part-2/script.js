@@ -278,15 +278,31 @@ const jonas = {
     friends: ['Michael', 'Steven', 'Peter'],
     hasDriversLicense: true,
 
-    // calAge: function () {
-    //     // return 2037 - jonas.birthYear;
-    //     return 2037 - this.birthYear;
-    // }
-
-    calAge: function (birthYear) {
+    calAge1: function (birthYear) {
         return 2037 - birthYear;
+    },
+
+    calAge2: function () {
+        // return 2037 - jonas.birthYear;
+        console.log(this); // this 關鍵字指向當前物件 jonas
+        return 2037 - this.birthYear;
+    },
+
+    calAge3: function () {
+        this.age = 2037 - this.birthYear; // 將計算出的年齡存儲在物件的 age 屬性中
+        return this.age;
+        // return 2037 - this.birthYear;
+    },
+
+    getSummary: function(){
+        return `${this.firstName} is a ${this.calAge2()}-year old ${this.job}, and he has ${this.hasDriversLicense ? 'a' : 'no'} driver's license.`;
     }
 };
 
-console.log(jonas.calAge(1991));
-console.log(jonas['calAge'](1991)); // 用方括號語法存取物件 jonas 的 calAge 屬性（該屬性是一個函式），然後用 1991 當參數呼叫它，並把回傳值傳給 console.log 顯示出來。
+console.log(jonas['calAge1'](1991)); // 用方括號語法存取物件 jonas 的 calAge 屬性（該屬性是一個函式），然後用 1991 當參數呼叫它，並把回傳值傳給 console.log 顯示出來。
+console.log(jonas.calAge2());
+
+jonas.calAge3();
+console.log(jonas.age);
+
+console.log(jonas.getSummary());

@@ -278,10 +278,15 @@ const jonas = {
     friends: ['Michael', 'Steven', 'Peter'],
     hasDriversLicense: true,
 
-    calAge: function () {
-        // return 2037 - jonas.birthYear;
-        return 2037 - this.birthYear;
+    // calAge: function () {
+    //     // return 2037 - jonas.birthYear;
+    //     return 2037 - this.birthYear;
+    // }
+
+    calAge: function (birthYear) {
+        return 2037 - birthYear;
     }
 };
 
 console.log(jonas.calAge(1991));
+console.log(jonas['calAge'](1991)); // 用方括號語法存取物件 jonas 的 calAge 屬性（該屬性是一個函式），然後用 1991 當參數呼叫它，並把回傳值傳給 console.log 顯示出來。

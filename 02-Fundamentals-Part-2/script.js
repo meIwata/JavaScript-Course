@@ -413,7 +413,7 @@ for(let i=0; i < jonas.length; i++) {
     }
 }
  */
-
+/*
 const jonas = [
     'jonas',
     'Schmedtmann',
@@ -433,4 +433,31 @@ for (let exercise = 1; exercise < 4; exercise++) {
     for(let rep = 1; rep < 6; rep++) {
         console.log(`Exercise ${exercise}: Lifting weight repetition ${rep} 🏋️`);
     }
+}
+ */
+
+for (let rep = 1; rep <= 10; rep++) {
+    console.log(`Lifting weights repetition ${rep} 🏋️`);
+}
+
+console.log('--- While Loop ---');
+let rep = 1;
+while (rep <= 10) {
+    console.log(`Lifting weights repetition ${rep} 🏋️`);
+    rep++;
+}
+
+// let dice = Math.trunc(Math.random() * 6) + 1; // 產生1到6的隨機整數
+
+function diceRoll() {
+    return Math.trunc(Math.random() * 6) + 1;
+}
+
+let count = 1;
+let dice;
+
+while (dice !== 6) {
+    dice = diceRoll();
+    console.log(`第${count}次，You rolled a ${dice}`);
+    count++;
 }

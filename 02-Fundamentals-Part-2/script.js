@@ -369,6 +369,7 @@ for (let i = 1; i <= 10; i++) { // 使用let，let代表區域變數
 };
  */
 
+/*
 const jonas = [
     'jonas',
     'Schmedtmann',
@@ -409,5 +410,27 @@ console.log("--- 只列出數字類型 ---");
 for(let i=0; i < jonas.length; i++) {
     if(typeof jonas[i] === 'number'){
         console.log(jonas[i], typeof jonas[i]);
+    }
+}
+ */
+
+const jonas = [
+    'jonas',
+    'Schmedtmann',
+    2037 - 1991,
+    'teacher',
+    ['Michael', 'Peter', 'Steven'],
+    true
+];
+
+for (let i = jonas.length - 1; i >= 0; i--) {
+    console.log(i, jonas[i]);
+}
+
+for (let exercise = 1; exercise < 4; exercise++) {
+    console.log(`---- Starting exercise ${exercise} ----`);
+
+    for(let rep = 1; rep < 6; rep++) {
+        console.log(`Exercise ${exercise}: Lifting weight repetition ${rep} 🏋️`);
     }
 }

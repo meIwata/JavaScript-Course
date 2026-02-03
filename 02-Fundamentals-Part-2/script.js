@@ -436,6 +436,7 @@ for (let exercise = 1; exercise < 4; exercise++) {
 }
  */
 
+/*
 for (let rep = 1; rep <= 10; rep++) {
     console.log(`Lifting weights repetition ${rep} 🏋️`);
 }
@@ -461,3 +462,34 @@ while (dice !== 6) {
     console.log(`第${count}次，You rolled a ${dice}`);
     count++;
 }
+*/
+
+// CHALLENGE #4
+const calcTip = function (bill) {
+    return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2; // 根據消費金額計算小費
+}
+
+const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+const tips = [];
+const totals = [];
+
+// 使用 for 迴圈計算每筆帳單的小費和總金額
+for (let i = 0; i < bills.length; i++) {
+    const tip = calcTip(bills[i]);
+    tips.push(tip);
+    totals.push(bills[i] + tip);
+}
+console.log(bills, tips, totals);
+
+
+const calcAverage = function (arr) {
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++) {
+        sum += arr[i];
+    }
+    // console.log(sum);
+    return sum / arr.length;
+}
+console.log(calcAverage([2, 3, 7]));
+console.log(calcAverage(totals));
+console.log(calcAverage(tips));

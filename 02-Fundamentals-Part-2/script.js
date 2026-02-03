@@ -349,6 +349,7 @@ console.log(
 );
  */
 
+/*
 console.log('Lifting weights repetition 1 🏋️');
 console.log('Lifting weights repetition 2 🏋️');
 console.log('Lifting weights repetition 3 🏋️');
@@ -366,3 +367,47 @@ for (let i = 1; i <= 10; i++) { // 使用let，let代表區域變數
     // console.log(`Lifting weights repetition ${i} 🏋️`);
     console.log("Lifting weights repetition " + i + " 🏋️");
 };
+ */
+
+const jonas = [
+    'jonas',
+    'Schmedtmann',
+    2037 - 1991,
+    'teacher',
+    ['Michael', 'Peter', 'Steven'],
+    true
+];
+
+const types = [];
+
+for (let i = 0; i < jonas.length; i++) {
+    console.log(jonas[i], typeof jonas[i]);
+
+    // types[i] = typeof jonas[i];
+    types.push(typeof jonas[i]);
+}
+console.log(types);
+
+const years = [1991, 2007, 1969, 2020];
+const ages = [];
+
+for (let i = 0; i < years.length; i++) {
+    // console.log(2023-years[i]);
+    ages.push(2037 - years[i]);
+}
+console.log(ages);
+
+console.log("--- 只列出字串類型 ---");
+for (let i=0; i < jonas.length; i++) {
+
+    if (typeof jonas[i] !== 'string') continue; // 如果不是字串，跳過此次迴圈
+
+    console.log(jonas[i], typeof jonas[i]);
+}
+
+console.log("--- 只列出數字類型 ---");
+for(let i=0; i < jonas.length; i++) {
+    if(typeof jonas[i] === 'number'){
+        console.log(jonas[i], typeof jonas[i]);
+    }
+}

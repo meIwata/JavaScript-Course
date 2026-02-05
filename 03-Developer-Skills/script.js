@@ -120,6 +120,7 @@ TEST DATA 1: [17, 21, 23]
 TEST DATA 2: [12, 5, -5, 0, 4]
 */
 
+/*
 const data1 = [17, 21, 23];
 const data2 = [12, 5, -5, 0, 4];
 
@@ -133,5 +134,57 @@ const printForecast = function (arr) {
     console.log('...' + str);
 }
 printForecast(data1);
+*/
 
+// Coding Challenge #2 With AI
 
+/*
+Let's say you're building a time tracking application for freelancers. At some point in building this app, you need a function that receives daily work hours for a certain week, and returns:
+1. Total hours worked
+2. Average daily hours
+3. The day with the most hours worked
+4. Number of days worked
+5. Whether the week was full-time (worked 35 hours or more)
+
+TEST DATA: [7.5, 8, 6.5, 0, 8.5, 4, 0]
+*/
+const workHours = [7.5, 8, 6.5, 0, 8.5, 4, 0];
+
+const analyzeWorkHours = function (hours) {
+    // 1. Total hours worked
+    let totalHours = 0;
+    for (let i = 0; i < hours.length; i++) {
+        totalHours += hours[i];
+    }
+    console.log(`1. Total hours worked: ${totalHours}`);
+
+    // 2. Average daily hours
+    // console.log(`workHours.length: ${workHours.length}`);
+    const averageHours = totalHours / hours.length;
+    console.log(`2. Average daily hours: ${averageHours}`);
+
+    // 3. The day with the most hours worked
+    let maxHours = hours[0];
+    let maxDay = 1;
+    for (let i = 1; i < hours.length; i++) {
+        if (hours[i] > maxHours) {
+            maxHours = hours[i];
+            maxDay = i + 1; // days are 1-indexed
+        }
+    }
+    console.log(`3. The day with the most hours worked: Day ${maxDay} with ${maxHours} hours`);
+
+    // 4. Number of days worked
+    let daysWorked = 0;
+    for (let i = 0; i < hours.length; i++) {
+        if (hours[i] > 0) {
+            daysWorked++;
+        }
+    }
+    console.log(`4. Number of days worked: ${daysWorked}`);
+
+    // 5. Whether the week was full-time (worked 35 hours or more)
+    const isFullTimeText = totalHours >= 35 ? 'worked full-time' : 'did not work full-time';
+    console.log('5. Whether the week was full-time: ' + isFullTimeText);
+}
+analyzeWorkHours(workHours);

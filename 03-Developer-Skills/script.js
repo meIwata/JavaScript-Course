@@ -1,7 +1,7 @@
 // https://github.com/jonasschmedtmann/complete-javascript-course/tree/master/03-Developer-Skills
 // Remember, we're gonna use strict mode in all scripts now!
 'use strict';
-
+/*
 // PROBLEM 1:
 // We work for a company building a smart home thermometer. Our most recent task is this: "Given an array of temperatures of one day, calculate the temperature amplitude. Keep in mind that sometimes there might be a sensor error."
 
@@ -42,6 +42,7 @@ console.log('Temperature amplitude:', amplitude);
 // 1) Understanding the problem
 // - With 2 arrays, should we implement the same functionality twice? No! Just merge two arrays
 
+
 const calcTempAmplitudeNew = function (t1, t2) {
     const temps = t1.concat(t2); // 合併兩個陣列
     console.log(temps);
@@ -61,3 +62,43 @@ const calcTempAmplitudeNew = function (t1, t2) {
 };
 const amplitudeNew = calcTempAmplitudeNew([3, 5, 1], [9, 0, 2]);
 console.log('Temperature amplitude:', amplitudeNew);
+ */
+const measureKelvin = function () {
+    const measurement = {
+        type: 'temp',
+        unit: 'celsius',
+        // value: prompt('Degrees celsius:'), // prompt 回傳的值是字串
+        // value: Number(prompt('Degrees celsius:')), // 使用 Number() 將字串轉為數字
+        value: 10
+    }
+    console.log(measurement);
+    console.table(measurement); // 以表格形式顯示物件
+    // console.log(measurement.value);
+    // console.warn(measurement.value);
+    // console.error(measurement.value);
+
+    const kelvin = measurement.value + 273;
+    return kelvin;
+}
+
+console.log('Kelvin value:', measureKelvin());
+
+const calcTempAmplitudeBug = function (t1, t2) {
+    const temps = t1.concat(t2); // 合併兩個陣列
+    console.log(temps);
+    let max = temps[0]; // 假設第一個值是最大值
+    let min = temps[temps.length - 1];
+    for (let i = 0; i < temps.length; i++) {
+        const currentTemp = temps[i];
+        if (currentTemp > max) {
+            max = currentTemp; // 更新最大值
+        }
+        if (currentTemp < min) {
+            min = currentTemp; // 更新最小值
+        }
+    }
+    console.log('Max temperature:', max, 'Min temperature:', min);
+    return max - min;
+};
+const amplitudeBug = calcTempAmplitudeBug([3, 5, 1], [9, 4, 5]);
+console.log('Temperature amplitude:', amplitudeBug);

@@ -14,12 +14,12 @@ console.log(document.querySelector('.guess').value); // value是輸入框的值
 */
 
 // const number = Math.random(); // Math.random()會回傳一個0到1之間的隨機小數，包含0但不包含1
-const secrectNumber = Math.trunc(Math.random() * 20) + 1; // Math.trunc()會去掉小數部分，Math.random() * 20會回傳一個0到20之間的隨機小數，包含0但不包含20，最後加1是為了讓範圍變成1到20
+let secrectNumber = Math.trunc(Math.random() * 20) + 1; // Math.trunc()會去掉小數部分，Math.random() * 20會回傳一個0到20之間的隨機小數，包含0但不包含20，最後加1是為了讓範圍變成1到20
 console.log(typeof secrectNumber, secrectNumber);
 
 let score = 20; // 定義一個變數score，初始值為20，後續會根據猜測的結果進行修改
 
-document.querySelector('.number').textContent = secrectNumber; // 顯示答案
+
 
 
 // 監聽按鈕的點擊事件
@@ -37,7 +37,7 @@ document.querySelector('.check').addEventListener('click', function () { // addE
         document.querySelector('.message').textContent = '⛔ 沒有輸入任何數字';
     } else if (guess === secrectNumber) { // 猜對了
         document.querySelector('.message').textContent = '🎉 恭喜你猜對了!';
-
+        document.querySelector('.number').textContent = secrectNumber; // 顯示答案
         // 修改樣式，當猜對時，背景變綠色，數字框變大
         document.querySelector('body').style.backgroundColor = '#60b347';
         document.querySelector('.number').style.width = '30rem';
@@ -63,3 +63,28 @@ document.querySelector('.check').addEventListener('click', function () { // addE
         }
     }
 });
+
+///////////////////////////////////////
+// Coding Challenge #1
+
+/*
+Implement a game rest functionality, so that the player can make a new guess! Here is how:
+
+1. Select the element with the 'again' class and attach a click event handler
+2. In the handler function, restore initial values of the score and secretNumber variables
+3. Restore the initial conditions of the message, number, score and guess input field
+4. Also restore the original background color (#222) and number width (15rem)
+
+GOOD LUCK 😀
+*/
+
+document.querySelector('.again').addEventListener('click', function () {
+    score = 20;
+    secrectNumber = Math.trunc(Math.random() * 20) + 1; // 重新生成一個新的隨機數字
+    document.querySelector('.message').textContent = 'Start guessing...';
+    document.querySelector('.number').textContent = '?';
+    document.querySelector('.score').textContent = score;
+    document.querySelector('.guess').value = '';
+    document.querySelector('body').style.backgroundColor = '#222';
+    document.querySelector('.number').style.width = '15rem';
+})

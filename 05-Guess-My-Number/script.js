@@ -35,10 +35,15 @@ document.querySelector('.check').addEventListener('click', function () { // addE
     // 判斷輸入的值是否為空或非數字
     if (!guess) { // !guess表示guess為假值，空字串、0、null、undefined都會被視為假值
         document.querySelector('.message').textContent = '⛔ 沒有輸入任何數字';
-    } else if (guess === secrectNumber) {
+    } else if (guess === secrectNumber) { // 猜對了
         document.querySelector('.message').textContent = '🎉 恭喜你猜對了!';
-        score += 5; // 猜對了，分數加5
-    } else if (guess < secrectNumber) {
+
+        // 修改樣式，當猜對時，背景變綠色，數字框變大
+        document.querySelector('body').style.backgroundColor = '#60b347';
+        document.querySelector('.number').style.width = '30rem';
+
+
+    } else if (guess < secrectNumber) { // 猜小了
         if (score > 1) {
             document.querySelector('.message').textContent = '📉 數字太小了!';
             score -= 1; // 猜錯了，分數減1
@@ -47,8 +52,7 @@ document.querySelector('.check').addEventListener('click', function () { // addE
             document.querySelector('.message').textContent = '💥 你輸了!';
             document.querySelector('.score').textContent = 0; // 分數歸零
         }
-
-    } else if (guess > secrectNumber) {
+    } else if (guess > secrectNumber) { // 猜大了
         if (score > 1) {
             document.querySelector('.message').textContent = '📉 數字太大了!';
             score -= 1; // 猜錯了，分數減1

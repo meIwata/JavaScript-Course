@@ -18,8 +18,7 @@ let secrectNumber = Math.trunc(Math.random() * 20) + 1; // Math.trunc()會去掉
 console.log(typeof secrectNumber, secrectNumber);
 
 let score = 20; // 定義一個變數score，初始值為20，後續會根據猜測的結果進行修改
-
-
+let highscore = 0; // 定義一個變數highscore，初始值為0，後續會根據猜測的結果進行修改
 
 
 // 監聽按鈕的點擊事件
@@ -42,6 +41,10 @@ document.querySelector('.check').addEventListener('click', function () { // addE
         document.querySelector('body').style.backgroundColor = '#60b347';
         document.querySelector('.number').style.width = '30rem';
 
+        if (score > highscore) {
+            highscore = score; // 更新最高分數
+            document.querySelector('.highscore').textContent = highscore; // 顯示最高分數
+        }
 
     } else if (guess < secrectNumber) { // 猜小了
         if (score > 1) {
@@ -88,3 +91,4 @@ document.querySelector('.again').addEventListener('click', function () {
     document.querySelector('body').style.backgroundColor = '#222';
     document.querySelector('.number').style.width = '15rem';
 })
+

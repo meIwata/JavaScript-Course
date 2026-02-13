@@ -20,6 +20,9 @@ console.log(typeof secrectNumber, secrectNumber);
 let score = 20; // 定義一個變數score，初始值為20，後續會根據猜測的結果進行修改
 let highscore = 0; // 定義一個變數highscore，初始值為0，後續會根據猜測的結果進行修改
 
+const displayMessage = function (message) { // 定義一個函數displayMessage，參數為message，這個函數的作用是修改.message元素的文本內容
+    document.querySelector('.message').textContent = message;
+}
 
 // 監聽按鈕的點擊事件
 document.querySelector('.check').addEventListener('click', function () { // addEventListener()是監聽事件的方法，第一個參數是事件類型，第二個參數是事件處理函數
@@ -33,9 +36,11 @@ document.querySelector('.check').addEventListener('click', function () { // addE
 
     // 判斷輸入的值是否為空或非數字
     if (!guess) { // !guess表示guess為假值，空字串、0、null、undefined都會被視為假值
-        document.querySelector('.message').textContent = '⛔ 沒有輸入任何數字';
+        // document.querySelector('.message').textContent = '⛔ 沒有輸入任何數字';
+        displayMessage('⛔ 沒有輸入任何數字');
     } else if (guess === secrectNumber) { // 猜對了
-        document.querySelector('.message').textContent = '🎉 恭喜你猜對了!';
+        // document.querySelector('.message').textContent = '🎉 恭喜你猜對了!';
+        displayMessage('🎉 恭喜你猜對了!');
         document.querySelector('.number').textContent = secrectNumber; // 顯示答案
         // 修改樣式，當猜對時，背景變綠色，數字框變大
         document.querySelector('body').style.backgroundColor = '#60b347';
@@ -46,22 +51,15 @@ document.querySelector('.check').addEventListener('click', function () { // addE
             document.querySelector('.highscore').textContent = highscore; // 顯示最高分數
         }
 
-    } else if (guess < secrectNumber) { // 猜小了
+    } else if (guess !== secrectNumber) { // 猜錯了，無論是猜大還是猜小，都會執行這段程式碼
         if (score > 1) {
-            document.querySelector('.message').textContent = '📉 數字太小了!';
+            // document.querySelector('.message').textContent = guess > secrectNumber ? '📉 數字太大了!' : '📉 數字太小了!';
+            displayMessage(guess > secrectNumber ? '📉 數字太大了!' : '📉 數字太小了!');
             score -= 1; // 猜錯了，分數減1
             document.querySelector('.score').textContent = score;
         } else {
-            document.querySelector('.message').textContent = '💥 你輸了!';
-            document.querySelector('.score').textContent = 0; // 分數歸零
-        }
-    } else if (guess > secrectNumber) { // 猜大了
-        if (score > 1) {
-            document.querySelector('.message').textContent = '📉 數字太大了!';
-            score -= 1; // 猜錯了，分數減1
-            document.querySelector('.score').textContent = score;
-        } else {
-            document.querySelector('.message').textContent = '💥 你輸了!';
+            // document.querySelector('.message').textContent = '💥 你輸了!';
+            displayMessage('💥 你輸了!');
             document.querySelector('.score').textContent = 0; // 分數歸零
         }
     }
@@ -84,7 +82,8 @@ GOOD LUCK 😀
 document.querySelector('.again').addEventListener('click', function () {
     score = 20;
     secrectNumber = Math.trunc(Math.random() * 20) + 1; // 重新生成一個新的隨機數字
-    document.querySelector('.message').textContent = 'Start guessing...';
+    // document.querySelector('.message').textContent = 'Start guessing...';
+    displayMessage('Start guessing...');
     document.querySelector('.number').textContent = '?';
     document.querySelector('.score').textContent = score;
     document.querySelector('.guess').value = '';

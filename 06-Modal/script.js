@@ -31,3 +31,12 @@ for (let i = 0; i < btnsOpenModal.length; i++) {
     btnCloseModal.addEventListener('click', closeModal);
     overlay.addEventListener('click', closeModal);
 }
+// 監聽鍵盤事件，當按下Esc鍵時關閉modal:
+document.addEventListener('keydown', function (e) {
+    // console.log('按下按鈕');
+    // console.log(e.key);// e.key可以獲取按下的鍵的名稱
+    if (e.key === 'Escape' && !modal.classList.contains('hidden')) { // 如果按下的鍵是Escape，且moda
+        // 如果modal沒有hidden的class，表示modal是顯示的狀態
+        closeModal();
+    }
+});

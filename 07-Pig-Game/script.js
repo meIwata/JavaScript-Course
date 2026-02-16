@@ -90,7 +90,7 @@ btnHold.addEventListener('click', function () {
         document.getElementById(`score--${activePlayer}`).textContent = scores[activePlayer]; // 更新當前玩家的總分數顯示
 
 
-        // 2. 檢查玩家的總分數是否 >= 100
+        // 2. 檢查玩家的總分數是否 >= 20
         if (scores[activePlayer] >= 20) {
             // 如果是，則該玩家獲勝，遊戲結束
             playing = false;

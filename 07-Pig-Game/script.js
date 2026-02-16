@@ -15,16 +15,27 @@ const btnNew = document.querySelector('.btn--new');
 const btnRoll = document.querySelector('.btn--roll');
 const btnHold = document.querySelector('.btn--hold');
 
+let scores, currentScore, activePlayer, playing; // 定義遊戲狀態變數
 
 /* 初始化遊戲 */
-score0El.textContent = 0; // 設定初始分數為 0
-score1El.textContent = 0;
-diceEl.classList.add('hidden'); // 隱藏骰子圖片
+const init = function () {
+    scores = [0, 0]; // 玩家 1 和玩家 2 的總分數
+    currentScore = 0; // 當前玩家的暫時分數
+    activePlayer = 0; // 0 代表玩家 1，1 代表玩家 2
+    playing = true; // 遊戲狀態，true 代表遊戲進行中，false 代表遊戲結束
 
-const scores = [0, 0]; // 玩家 1 和玩家 2 的總分數
-let currentScore = 0; // 當前玩家的暫時分數
-let activePlayer = 0; // 0 代表玩家 1，1 代表玩家 2
-let playing = true; // 遊戲狀態，true 代表遊戲進行中，false 代表遊戲結束
+    score0El.textContent = 0;
+    score1El.textContent = 0;
+    current0El.textContent = 0;
+    current1El.textContent = 0;
+
+    diceEl.classList.add('hidden'); // 隱藏骰子圖片
+    player0El.classList.remove('player--winner');
+    player1El.classList.remove('player--winner');
+    player0El.classList.add('player--active');
+    player1El.classList.remove('player--active');
+};
+init(); // 初始化遊戲狀態和 UI
 
 const switchPlayer = function () {
     document.getElementById(`current--${activePlayer}`).textContent = 0; // 更新當前玩家的暫時分數顯示為 0
@@ -92,3 +103,9 @@ btnHold.addEventListener('click', function () {
         }
     }
 });
+
+
+// btnNew.addEventListener('click', function () {
+//     init(); // 重新初始化遊戲狀態和 UI
+// })
+btnNew.addEventListener('click', init); // 直接將 init 函數作為事件處理器，當按下 New Game 按鈕時會呼叫 init 函數來重新初始化遊戲狀態和 UI

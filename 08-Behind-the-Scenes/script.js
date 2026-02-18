@@ -40,6 +40,8 @@ const firstName = 'Jonas';
 calAge(1991);
 */
 
+
+/*
 // 變數提升
 console.log(me);
 // console.log(job);
@@ -83,3 +85,36 @@ const z = 3;
 console.log(x === window.x); // var 宣告的變數會成為全域物件 window 的屬性，所以 x === window.x 會得到 true
 console.log(y === window.y); // let 宣告的變數不會成為全域物件 window 的屬性，所以 y === window.y 會得到 false
 console.log(z === window.z); // const 宣告的變數不會成為全域物件 window 的屬性，所以 z === window.z 會得到 false
+*/
+
+// console.log(this); // 在全域作用域中，this 會指向全域物件 window
+const calcAge = function (birthYear) {
+    console.log(2025 - birthYear);
+    console.log(this); // 在一般函式中，this 會指向 undefined（在嚴格模式下），或者指向全域物件 window（在非嚴格模式下）
+}
+calcAge(1991);
+
+const calcAgeArrow = birthYear => {
+    console.log(2025 - birthYear);
+    console.log(this); // 在箭頭函式中，this 會繼承自外部作用域，所以在這裡 this 會指向全域物件 window
+}
+calcAgeArrow(1991);
+
+// 在物件方法中，this 會指向呼叫該方法的物件
+const jonas = {
+    year: 1991,
+    calcAge: function () {
+        console.log(this); // 在物件方法中，this 會指向呼叫該方法的物件，所以在這裡 this 會指向 jonas 物件
+        console.log(2037 - this.year); // 指向 jonas 物件的 year 屬性
+    }
+}
+jonas.calcAge();
+
+const matilda= {
+    year: 2017
+}
+matilda.calcAge = jonas.calcAge; // 方法借用，將 jonas 的 calcAge 方法賦值給 matilda 的 calcAge 屬性
+matilda.calcAge(); // 呼叫 matilda 的 calcAge 方法，這裡 this 會指向 matilda 物件，所以在這裡 this.year 會指向 matilda 物件的 year 屬性
+
+const f = jonas.calcAge;
+f();

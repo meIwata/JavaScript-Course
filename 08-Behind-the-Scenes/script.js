@@ -87,6 +87,8 @@ console.log(y === window.y); // let 宣告的變數不會成為全域物件 wind
 console.log(z === window.z); // const 宣告的變數不會成為全域物件 window 的屬性，所以 z === window.z 會得到 false
 */
 
+
+/*
 // console.log(this); // 在全域作用域中，this 會指向全域物件 window
 const calcAge = function (birthYear) {
     console.log(2025 - birthYear);
@@ -118,3 +120,55 @@ matilda.calcAge(); // 呼叫 matilda 的 calcAge 方法，這裡 this 會指向 
 
 const f = jonas.calcAge;
 f();
+ */
+
+// var firstName = 'Matilda';
+
+const jonas = {
+    // 屬性
+    firstName: 'Jonas',
+    year: 1991,
+
+    // 方法
+    calcAge: function () {
+        // console.log(this); // 在物件方法中，this 會指向呼叫該方法的物件，所以在這裡 this 會指向 jonas 物件
+        console.log(2037 - this.year); // 指向 jonas 物件的 year 屬性
+
+        // 方法一:
+        // const self = this; // 在 calcAge 方法中，this 會指向 jonas 物件，所以我們將 this 賦值給 self 變數，這樣在內部函式中就可以使用 self 來指向 jonas 物件
+        // const isMillennial = function () {
+        //     console.log(self);
+        //     console.log(self.year >= 1981 && self.year <= 2000);
+        // }
+
+        // 方法二:
+        const isMillennial = () => {
+            console.log(this);
+            console.log(this.year >= 1981 && this.year <= 2000);
+        }
+        isMillennial();
+    },
+    greet: () => {
+        console.log(this);
+        console.log(`Hey ${this.firstName}`);
+    }
+}
+jonas.greet();
+jonas.calcAge();
+
+// arguments keyword
+const addExpr = function (a, b) {
+    console.log(arguments); // 在一般函式中，arguments 會指向呼叫該函式時傳入的參數，所以在這裡 arguments 會是一個類陣列物件，包含了傳入的參數 a 和 b
+    return a + b;
+}
+
+addExpr(2, 5);
+addExpr(2, 5, 8, 12); // 即使傳入了更多的參數，arguments 仍然會包含所有傳入的參數
+
+
+// 箭頭函式沒有自己的 arguments 物件，所以在箭頭函式中使用 arguments 會得到 ReferenceError，因為 arguments 是在函式作用域中定義的，而箭頭函式沒有自己的作用域，所以無法訪問 arguments 物件
+var addArrow = (a, b) => {
+    console.log(arguments); // 在箭頭函式中，arguments 不會被定義，因為箭頭函式沒有自己的 arguments 物件，所以在這裡使用 arguments 會得到 ReferenceError
+    return a + b;
+}
+addArrow(2, 5, 8);

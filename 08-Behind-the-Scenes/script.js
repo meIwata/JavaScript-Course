@@ -1,3 +1,4 @@
+// https://www.udemy.com/course/the-complete-javascript-course/?srsltid=AfmBOooiexZlxH19e9R3poYGCf_JqeYo32gUeJ418K-_O184Oz8OmV6S
 'use strict';
 /*
 function calAge(birthYear) {
@@ -122,6 +123,7 @@ const f = jonas.calcAge;
 f();
  */
 
+/*
 // var firstName = 'Matilda';
 
 const jonas = {
@@ -172,3 +174,45 @@ var addArrow = (a, b) => {
     return a + b;
 }
 addArrow(2, 5, 8);
+ */
+
+const jessica1 ={
+    firstName: 'Jessica',
+    lastName: 'williams',
+    age: 27
+}
+
+function marryPerson(originalPerson, newLastName) {
+    originalPerson.lastName = newLastName;
+    return originalPerson;
+}
+const marriedJessica = marryPerson(jessica1, 'Davis');
+
+// const marriedJessica = jessica1; // 把 jessica 物件的參考賦值給 marriedJessica 變數，這樣 marriedJessica 和 jessica 就指向同一個物件
+// marriedJessica.lastName = 'Davis';
+console.log('結婚前: ', jessica1);
+console.log('結婚後: ', marriedJessica);
+
+const jessica ={
+    firstName: 'Jessica',
+    lastName: 'williams',
+    age: 27,
+    family: ['Alice', 'Bob']
+}
+
+
+// Shallow copy (淺拷貝) 是指只複製物件的第一層屬性，如果物件的屬性值是基本類型（如字串、數字、布林值等），那麼這些值會被複製到新的物件中；但是如果物件的屬性值是參考類型（如陣列、物件等），那麼這些值不會被複製，而是將原始物件的參考賦值給新的物件，這樣新的物件和原始物件就指向同一個參考類型的值，所以當修改新的物件中的參考類型的值時，原始物件中的該值也會被修改。
+const jessicaCopy = {...jessica}; //...代表展開運算子，將 jessica 物件的屬性展開並賦值給 jessicaCopy 變數，這樣 jessicaCopy 就是一個新的物件，與 jessica 不同，但屬性值相同
+// jessicaCopy.lastName = 'Davis';
+// console.log('結婚前: ', jessica);
+// console.log('結婚後: ', jessicaCopy);
+//
+// jessicaCopy.family.push('Mary', 'John');
+// console.log('結婚前: ', jessica);
+// console.log('結婚後: ', jessicaCopy);
+
+// Deep copy (深拷貝) 是指複製整個物件，包括物件的所有層級的屬性，如果物件的屬性值是基本類型，那麼這些值會被複製到新的物件中；如果物件的屬性值是參考類型，那麼這些值也會被複製到新的物件中，而不是將原始物件的參考賦值給新的物件，這樣新的物件和原始物件就不會指向同一個參考類型的值，所以當修改新的物件中的參考類型的值時，原始物件中的該值不會被修改。深拷貝通常需要使用遞迴或第三方庫來實現。
+const jessicaClone = structuredClone(jessica);
+jessicaClone.family.push('Mary', 'John');
+console.log('深拷貝-結婚前: ', jessica);
+console.log('深拷貝-結婚後: ', jessicaClone);

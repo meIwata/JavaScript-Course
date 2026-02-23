@@ -43,9 +43,11 @@ const nested = [2, 4, [5, 6]];
 // const [i, , j] = nested;
 // console.log(i, j);
 
-const[i, , [j,k]] = nested;
+const [i, , [j, k]] = nested;
 console.log(i, j, k);
 
 // 默認值
-const [p =1,q=1,r=1] = [8, 9];
-console.log(p, q, r); // r 為 undefined
+const [p = 1, q, r] = [8, 9];
+console.log(p, q, r); // r 沒有值，默認為 undefined
+// const [p = 1, q = 1, r = 1] = [8, 9];
+// console.log(p, q, r); // r沒有再賦值，默認為1

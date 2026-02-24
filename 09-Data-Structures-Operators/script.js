@@ -35,9 +35,62 @@ const restaurant = {
     // 直接在參數中解構賦值
     orderDelivery: function ({starterIndex = 1, mainIndex = 0, time = '20:00', address}) {
         console.log(`Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`);
+    },
+
+    orderPasta: function (ing1, ing2, ing3) {
+        console.log(`Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}`);
     }
 };
 
+const arr = [7, 8, 9];
+const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+console.log(badNewArr);
+
+const newArr = [1, 2, ...arr]; // ...arr 是展開運算符，將arr中的元素展開成獨立的元素，然後再放入newArr中
+console.log(newArr);
+
+console.log(...newArr); // 展開運算符將newArr中的元素展開成獨立的元素，然後再傳入console.log中
+console.log(1, 2, 7, 8, 9); // 展開運算符將newArr中的元素展開成獨立的元素，然後再傳入console.log中
+
+const newMenu1 = [restaurant.mainMenu, 'Gnocchi']; // 這樣會將restaurant.mainMenu作為一個元素放入newMenu中，導致newMenu變成一個二維陣列
+console.log(newMenu1);
+
+const newMenu2 = [...restaurant.mainMenu, 'Gnocchi']; // 這樣會將restaurant.mainMenu中的元素展開成獨立的元素，然後再放入newMenu中，導致newMenu變成一個一維陣列
+console.log(newMenu2);
+
+// 拷貝陣列
+const mainMenuCopy = [...restaurant.mainMenu];
+
+// 合併陣列
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+console.log(menu);
+
+// 迭代陣列: arrys, strings, maps, sets, but not objects
+const str = 'Jonas';
+const letters = [...str, ' ', 'S.']; // 展開運算符將str中的每個字母展開成獨立的元素，然後再放入letters中，最後再加上空格和S.，形成一個新的陣列
+console.log(letters);
+console.log(...str); // 展開運算符將str中的每個字母展開成獨立的元素，然後再傳入console.log中
+// console.log(`${...str} Schmedtmann`); // 這樣會報錯，因為展開運算符只能用在陣列中，不能用在字串中，這裡的str是一個字串，不是一個陣列，所以會報錯
+
+const ingredients = [
+    // prompt('Let\'s make pasta! Ingredient 1?'),
+    // prompt('Ingredient 2?'),
+    // prompt('Ingredient 3?')
+];// 這裡的prompt會彈出一個對話框，讓用戶輸入三個食材，然後將這三個食材放入ingredients陣列中
+console.log(ingredients);
+// restaurant.orderPasta(ingredients[0], ingredients[1], ingredients[2]); // 這裡的ingredients[0]、ingredients[1]、ingredients[2]分別是用戶輸入的三個食材，然後將這三個食材傳入orderPasta函數中
+restaurant.orderPasta(...ingredients); // 這裡的...ingredients是展開運算符，將ingredients陣列中的元素展開成獨立的元素，然後再傳入orderPasta函數中，這樣就不需要寫ingredients[0]、ingredients[1]、ingredients[2]了，直接寫...ingredients就可以了
+
+// Objects
+const newRestaurant = {foundedIn: 1998, ...restaurant, founder: 'Guiseppe'};
+console.log(newRestaurant);
+
+const restaurantCopy = {...restaurant}; // 這裡的...restaurant是展開運算符，將restaurant物件中的屬性展開成獨立的屬性，然後再放入restaurantCopy中，這樣就創建了一個新的物件，並且將restaurant物件中的屬性複製到新的物件中
+restaurantCopy.name = 'Ristorante Roma';
+console.log(restaurantCopy.name); // Ristorante Roma
+console.log(restaurant.name); // Classico Italiano
+
+/*
 // 呼叫restaurant物件中的orderDelivery方法，並傳入一個物件作為參數
 restaurant.orderDelivery({
     // 裡面的屬性名稱必須和orderDelivery函數中定義的參數名稱相同，否則會undefined
@@ -80,7 +133,7 @@ console.log(a, b);
 
 const {fri: {open: o, close: c}} = openingHours;
 console.log(o, c);
-
+*/
 /*
 const arr = [2, 3, 4];
 const a = arr[0];

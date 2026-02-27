@@ -47,6 +47,38 @@ const restaurant = {
     },
 };
 
+const rest1 = {
+    name: 'Capri',
+    // numGuests: 20,
+    numGuests: 0,
+}
+
+const rest2 = {
+    name: 'La Piazza',
+    owner: 'Giovanni Rossi',
+}
+
+// 使用邏輯運算子 OR 來設定默認值
+// rest1.numGuests = rest1.numGuests || 10; // 如果 rest1.numGuests 是 falsy value (例如 undefined)，則將 rest1.numGuests 設置為 10，否則保持原值
+// rest1.numGuests ||= 10; // 跟上面一行的效果一樣
+// rest2.numGuests = rest2.numGuests || 10; // 如果 rest2.numGuests 是 falsy value (例如 undefined)，則將 rest2.numGuests 設置為 10，否則保持原值
+// rest2.numGuests ||= 10; // 跟上面一行的效果一樣
+
+// nullish coalescing operator 合併運算子
+rest1.numGuests ??= 10; // 如果 rest1.numGuests 是 null 或 undefined，則將 rest1.numGuests 設置為 10，否則保持原值
+rest2.numGuests ??= 10; // 如果 rest2.numGuests 是 null 或 undefined，則將 rest2.numGuests 設置為 10，否則保持原值
+
+// rest1.owner = rest1.owner && '<ANONYMOUS>';
+// rest2.owner = rest2.owner && '<ANONYMOUS>'; // 如果 rest2.owner 是 truthy value，則將 rest2.owner 設置為 '<ANONYMOUS>'，否則保持原值
+
+// Logical assignment operators 邏輯賦值運算子
+rest1.owner &&= '<ANONYMOUS>'; // 如果 rest1.owner 是 truthy value，則將 rest1.owner 設置為 '<ANONYMOUS>'，否則保持原值
+rest2.owner &&= '<ANONYMOUS>'; // 如果 rest2.owner 是 truthy value，則將 rest2.owner 設置為 '<ANONYMOUS>'，否則保持原值
+
+console.log(rest1);
+console.log(rest2);
+
+/*
 restaurant.numGuests = 0;
 const guest = restaurant.numGuest || 10;
 console.log(guest);
@@ -54,6 +86,7 @@ console.log(guest);
 // nullish coalescing operator 合併運算子，不包含''或是NOT
 const guessCorrect = restaurant.numGuests ?? 10; // ?? 代表 nullish coalescing operator 合併運算子，當左邊的值為 null 或 undefined 時，才會返回右邊的值，否則返回左邊的值
 console.log(guessCorrect);
+*/
 
 /*
 console.log('-------OR--------');

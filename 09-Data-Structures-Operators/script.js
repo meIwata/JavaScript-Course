@@ -1,5 +1,23 @@
 'use strict';
 
+const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+const openingHours = {
+    [weekdays[3]]: {
+        open: 12,
+        close: 22,
+    },
+    [weekdays[4]]: {
+        open: 11,
+        close: 23,
+    },
+    [weekdays[5]]: {
+        // [`day-${6}`]: {
+        open: 0, // Open 24 hours
+        // close: 24,
+        close: 12 + 12,
+    },
+}
+
 const restaurant = {
     name: 'Classico Italiano',
     location: 'Via Angelo Tavanti 23, Firenze, Italy',
@@ -7,23 +25,11 @@ const restaurant = {
     starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
     mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
-    openingHours: {
-        thu: {
-            open: 12,
-            close: 22,
-        },
-        fri: {
-            open: 11,
-            close: 23,
-        },
-        sat: {
-            open: 0, // Open 24 hours
-            close: 24,
-        }
-    },
+    // ES6 加強物件字面量的寫法，當屬性名稱和變數名稱相同時，可以直接寫變數名稱，這裡的openingHours就是一個變數，值是一個物件，當作restaurant物件的一個屬性
+    hours,
 
 
-    order: function (starterIndex, mainIndex) {
+    order(starterIndex, mainIndex) {
         return [this.starterMenu[starterIndex], this.starterMenu[mainIndex]];
     },
 
@@ -33,20 +39,21 @@ const restaurant = {
     // }
 
     // 直接在參數中解構賦值
-    orderDelivery: function ({starterIndex = 1, mainIndex = 0, time = '20:00', address}) {
+    orderDelivery({starterIndex = 1, mainIndex = 0, time = '20:00', address}) {
         console.log(`Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`);
     },
 
-    orderPasta: function (ing1, ing2, ing3) {
+    orderPasta(ing1, ing2, ing3) {
         console.log(`Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}`);
     },
 
-    orderPizza: function (mainIngredient, ...otherIngredients) {
+    orderPizza(mainIngredient, ...otherIngredients) {
         console.log(mainIngredient);
         console.log(otherIngredients);
     },
 };
 
+/*
 const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 
 // 傳統的 for 迴圈，迭代陣列中的元素
@@ -66,7 +73,7 @@ for(const item of menu.entries()){
 }
 
 // console.log([...menu.entries()]); // 展開運算符將menu.entries()中的元素展開成獨立的元素，然後再傳入console.log中
-
+*/
 
 ///////////////////////////////////////
 // Coding Challenge #1

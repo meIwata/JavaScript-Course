@@ -47,7 +47,16 @@ const restaurant = {
     },
 };
 
-console.log('---------------');
+restaurant.numGuests = 0;
+const guest = restaurant.numGuest || 10;
+console.log(guest);
+
+// nullish coalescing operator 合併運算子，不包含''或是NOT
+const guessCorrect = restaurant.numGuests ?? 10; // ?? 代表 nullish coalescing operator 合併運算子，當左邊的值為 null 或 undefined 時，才會返回右邊的值，否則返回左邊的值
+console.log(guessCorrect);
+
+/*
+console.log('-------OR--------');
 console.log(3 || 'Jonas');
 console.log('' || 'Jonas');
 console.log(true || 0);
@@ -72,6 +81,8 @@ if (restaurant.orderPizza) {
     restaurant.orderPizza('mushrooms', 'spinach');
 }
 restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
+*/
+
 /*
 // 1) 解構賦值
 // 展開運算符，因為在等號的右邊，所以是展開運算符

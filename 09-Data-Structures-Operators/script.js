@@ -47,6 +47,27 @@ const restaurant = {
     },
 };
 
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+// 傳統的 for 迴圈，迭代陣列中的元素
+// for(let i=0; i<menu.length; i++) {
+//     console.log(`${menu[i]}`)
+// }
+
+// of 迭代陣列中的元素
+for(const item of menu) {
+    console.log(item);
+}
+
+// entries() 方法返回一個新的 Array Iterator 物件，包含陣列中每個索引的鍵/值對。這裡的item是一個陣列，第一個元素是索引，第二個元素是對應的值
+for(const item of menu.entries()){
+    // console.log(item);
+    console.log(`${item[0] + 1}: ${item[1]}`);
+}
+
+// console.log([...menu.entries()]); // 展開運算符將menu.entries()中的元素展開成獨立的元素，然後再傳入console.log中
+
+
 ///////////////////////////////////////
 // Coding Challenge #1
 
@@ -68,6 +89,7 @@ TEST DATA FOR 6: Use players 'Davies', 'Muller', 'Lewandowski' and 'Kimmich'. Th
 GOOD LUCK 😀
 */
 
+/*
 const game = {
     team1: 'Bayern Munich',
     team2: 'Borrussia Dortmund',
@@ -141,6 +163,7 @@ printGoals(...game.scored);
 // 7. 賠率較低的隊伍較可能獲勝。不要使用 if/else 或三元運算子，將哪隊較有可能獲勝列印到主控台。
 team1 < team2 && console.log(`Team 1 is more likely to win!`);
 team1 > team2 && console.log(`Team 2 is more likely to win!`);
+*/
 /*
 const rest1 = {
     name: 'Capri',

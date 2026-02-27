@@ -47,6 +47,101 @@ const restaurant = {
     },
 };
 
+///////////////////////////////////////
+// Coding Challenge #1
+
+/*
+We're building a football betting app (soccer for my American friends 😅)!
+
+Suppose we get data from a web service about a certain game (below). In this challenge we're gonna work with the data. So here are your tasks:
+
+1. Create one player array for each team (variables 'players1' and 'players2')
+2. The first player in any player array is the goalkeeper and the others are field players. For Bayern Munich (team 1) create one variable ('gk') with the goalkeeper's name, and one array ('fieldPlayers') with all the remaining 10 field players
+3. Create an array 'allPlayers' containing all players of both teams (22 players)
+4. During the game, Bayern Munich (team 1) used 3 substitute players. So create a new array ('players1Final') containing all the original team1 players plus 'Thiago', 'Coutinho' and 'Perisic'
+5. Based on the game.odds object, create one variable for each odd (called 'team1', 'draw' and 'team2')
+6. Write a function ('printGoals') that receives an arbitrary number of player names (NOT an array) and prints each of them to the console, along with the number of goals that were scored in total (number of player names passed in)
+7. The team with the lower odd is more likely to win. Print to the console which team is more likely to win, WITHOUT using an if/else statement or the ternary operator.
+
+TEST DATA FOR 6: Use players 'Davies', 'Muller', 'Lewandowski' and 'Kimmich'. Then, call the function again with players from game.scored
+
+GOOD LUCK 😀
+*/
+
+const game = {
+    team1: 'Bayern Munich',
+    team2: 'Borrussia Dortmund',
+    players: [
+        [
+            'Neuer',
+            'Pavard',
+            'Martinez',
+            'Alaba',
+            'Davies',
+            'Kimmich',
+            'Goretzka',
+            'Coman',
+            'Muller',
+            'Gnarby',
+            'Lewandowski',
+        ],
+        [
+            'Burki',
+            'Schulz',
+            'Hummels',
+            'Akanji',
+            'Hakimi',
+            'Weigl',
+            'Witsel',
+            'Hazard',
+            'Brandt',
+            'Sancho',
+            'Gotze',
+        ],
+    ],
+    score: '4:0',
+    scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+    date: 'Nov 9th, 2037',
+    odds: {
+        team1: 1.33,
+        x: 3.25,
+        team2: 6.5,
+    },
+};
+
+// 1. 為每隊建立一個球員陣列（變數 players1 和 players2）。
+const [players1, players2] = game.players;
+console.log(players1, players2);
+
+// 2. 任一球員陣列的第一位是守門員，其餘是場上球員。對於拜仁慕尼黑（team1），建立變數 gk 指定守門員姓名，並建立陣列 fieldPlayers 包含其餘 10 名場上球員。
+const [gk, ...fieldPlayers] = players1;
+console.log(gk, fieldPlayers);
+
+// 3. 建立陣列 allPlayers，包含兩隊所有球員（共 22 名）。
+const allPlayers = [...players1, ...players2];
+console.log(allPlayers);
+
+// 4. 比賽中拜仁（team1）使用了 3 名替補。建立新陣列 players1Final，包含原本 players1 的所有球員加上 Thiago、Coutinho 與 Perisic。
+const playerFinal = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
+console.log(playerFinal);
+
+// 5. 根據 game.odds 物件，為每個賠率建立變數：team1、draw 與 team2。
+const {odds: {team1, x: draw, team2}} = game;
+console.log(team1, draw, team2);
+
+// 6. 寫一個函式 printGoals，接受任意數量的球員姓名（不是陣列），將每個姓名列印到主控台，並印出總進球數（傳入的姓名個數）。
+const printGoals = function (...players) {
+    console.log(players);
+    console.log(`${players.length} goals were scored`);
+}
+// printGoals('Davies', 'Muller', 'Lewandowski', 'Kimmich');
+// printGoals('Davies', 'Muller');
+printGoals(...game.scored);
+
+// 7. 賠率較低的隊伍較可能獲勝。不要使用 if/else 或三元運算子，將哪隊較有可能獲勝列印到主控台。
+team1 < team2 && console.log(`Team 1 is more likely to win!`);
+team1 > team2 && console.log(`Team 2 is more likely to win!`);
+/*
 const rest1 = {
     name: 'Capri',
     // numGuests: 20,
@@ -77,7 +172,7 @@ rest2.owner &&= '<ANONYMOUS>'; // 如果 rest2.owner 是 truthy value，則將 r
 
 console.log(rest1);
 console.log(rest2);
-
+*/
 /*
 restaurant.numGuests = 0;
 const guest = restaurant.numGuest || 10;

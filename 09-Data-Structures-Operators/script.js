@@ -26,7 +26,7 @@ const restaurant = {
     mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
     // ES6 加強物件字面量的寫法，當屬性名稱和變數名稱相同時，可以直接寫變數名稱，這裡的openingHours就是一個變數，值是一個物件，當作restaurant物件的一個屬性
-    hours,
+    openingHours,
 
 
     order(starterIndex, mainIndex) {
@@ -52,6 +52,38 @@ const restaurant = {
         console.log(otherIngredients);
     },
 };
+
+if (restaurant.openingHours && restaurant.openingHours.mon) {
+    console.log(restaurant.openingHours.mon.open);
+}
+// 使用可選鏈（Optional Chaining）來簡化上面的程式碼，當restaurant.openingHours.mon存在時，才會繼續評估後面的open屬性，否則直接返回undefined
+console.log(restaurant.openingHours.mon?.open);
+
+// 範例
+const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+for (const day of days) {
+    // console.log(day);
+    const open = restaurant.openingHours[day]?.open || 'closed'; // 如果restaurant.openingHours[day]存在，則返回其open屬性，否則返回'closed'
+    console.log(`On ${day}, we open at ${open}`);
+}
+
+// 方法
+console.log(restaurant.order?.(0, 1) ?? 'Method does not exist'); // 如果restaurant.order存在，則調用它並傳入參數0和1，否則返回'Method does not exist'
+console.log(restaurant.orderRisotto?.(0, 1) ?? 'Method does not exist'); // 如果restaurant.orderRisotto存在，則調用它並傳入參數0和1，否則返回'Method does not exist'
+
+// 陣列
+const users = [{name: 'Jonas', email: 'hello@jonas.io'}];
+console.log(users[0]?.name ?? 'User array empty'); // 如果users[0]存在，則返回其name屬性，否則返回'User array empty'
+
+if (users.length > 0) {
+    console.log(users[0].name);
+} else {
+    console.log('User array empty');
+}
+
+// if(restaurant.openingHours.fri){
+//     console.log(restaurant.openingHours.fri.open);
+// }
 
 /*
 const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];

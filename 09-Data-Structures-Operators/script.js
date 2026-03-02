@@ -53,6 +53,30 @@ const restaurant = {
     },
 };
 
+// Property NAMES 屬性名稱
+const properties = Object.keys(openingHours);
+console.log(properties);
+// console.log(`We are open on ${properties.length} days`);
+let openStr = `We are open on ${properties.length} days: `;
+
+// for(const day of Object.keys(openingHours)){
+for (const day of properties) {
+    openStr += `${day}, `;
+}
+console.log(openStr);
+
+// Property VALUES 屬性值
+const values = Object.values(openingHours);
+console.log(values);
+
+const entries = Object.entries(openingHours);
+// console.log(entries);
+
+for (const [key, {open, close}] of entries) {
+    console.log(`On ${key} we open at ${open} and close at ${close}`);
+}
+
+/*
 if (restaurant.openingHours && restaurant.openingHours.mon) {
     console.log(restaurant.openingHours.mon.open);
 }
@@ -85,6 +109,7 @@ if (users.length > 0) {
 //     console.log(restaurant.openingHours.fri.open);
 // }
 
+*/
 /*
 const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 

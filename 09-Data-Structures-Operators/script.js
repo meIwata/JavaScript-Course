@@ -517,7 +517,7 @@ BONUS: Create an object called 'scorers' which contains the names of the players
 
 GOOD LUCK 😀
 */
-
+/*
 const game = {
     team1: 'Bayern Munich',
     team2: 'Borrussia Dortmund',
@@ -581,3 +581,31 @@ for(const[team, odd] of Object.entries(game.odds)) {
 // Odd of victory Bayern Munich: 1.33
 // Odd of draw: 3.25
 // Odd of victory Borrussia Dortmund: 6.5
+
+ */
+
+// 集合Set 是一種新的資料結構，類似於陣列，但不允許重複的值，並且沒有索引。Set中的元素是唯一的，當你試圖添加一個已經存在的元素時，Set會自動忽略它。
+const orderSet = new Set(['Pasta', 'Pizza', 'Pizza', 'Risotto', 'Pasta', 'Pizza']);
+console.log(orderSet);
+console.log(new Set('Jonas'));
+console.log(orderSet.size);
+console.log(orderSet.has('Pizza'));
+console.log(orderSet.has('Bread'));
+orderSet.add('Garlic Bread');
+orderSet.add('Garlic Bread');
+orderSet.delete('Risotto');
+// orderSet.clear(); // 清空Set中的所有元素
+console.log(orderSet);
+// console.log(orderSet[0]); // Set沒有索引，所以無法通過索引訪問元素
+
+// Set可以迭代，所以可以使用for...of迴圈來迭代Set中的元素，類似Java的增強型for迴圈
+for(const order of orderSet){
+    console.log(order);
+}
+
+// 範例
+const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
+const staffUnique = [...new Set(staff)]; // 先將staff陣列轉換為Set，這樣就會自動去除重複的元素，然後再使用展開運算符將Set中的元素展開成獨立的元素，最後再放入一個新的陣列中，這樣就得到了staffUnique陣列，其中包含了staff陣列中的唯一元素
+console.log(new Set(['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter']).size);
+
+console.log(new Set('jonasschmedtmann').size); // 這裡的'jonasschmedtmann'是一個字串，當我們將它轉換為Set時，Set會自動去除重複的字母，最後得到的Set中只包含了唯一的字母，所以size是7

@@ -630,7 +630,7 @@ const mexicanFoods = new Set([
     'avocado',
     'garlic',
 ]);
-
+/*
 // 兩個集合的交集（intersection）是指同時存在於兩個集合中的元素。在這個例子中，italianFoods和mexicanFoods的交集是'tomatoes'和'garlic'，因為這兩個元素同時存在於兩個集合中。
 const commonFoods = italianFoods.intersection(mexicanFoods);
 // const commonFoods2 = mexicanFoods.intersection(italianFoods); // 這樣寫也是一樣的，因為交集是對稱的，無論哪個集合在前面，結果都是一樣的
@@ -652,3 +652,30 @@ console.log('差集: ', uniqueMexicanFoods);
 // 兩個集合的對稱差集（symmetric difference）是指存在於其中一個集合中但不存在於另一個集合中的元素。在這個例子中，italianFoods和mexicanFoods的對稱差集是'pasta'、'gnocchi'、'olive oil'、'basil'、'tortillas'、'beans'、'rice'、'avocado'，因為這些元素存在於其中一個集合中但不存在於另一個集合中。
 const uniqueItalianAndMexicanFoods = italianFoods.symmetricDifference(mexicanFoods);
 console.log('對稱差集: ', uniqueItalianAndMexicanFoods);
+ */
+
+const rest = new Map();
+rest.set('name', 'Classico Italiano');
+rest.set(1, 'Firenze, Italy');
+console.log(rest.set(2, 'Lisbon, Portugal'));
+
+rest.set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic']).set('open', 11).set('close', 23).set(true, 'We are open :D').set(false, 'We are closed :(');
+
+console.log(rest.get('name'));
+console.log(rest.get(true));
+console.log(rest.get(1));
+
+const time = 8;
+console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
+
+console.log(rest.has('categories'));
+rest.delete(2);
+// rest.clear(); // 清空Map中的所有元素
+
+const arr = [1, 2];
+rest.set(arr, 'Test');
+rest.set(document.querySelector('h1'), 'Heading');
+console.log(rest);
+console.log(rest.size);
+console.log(rest.get(arr)); // 這裡的arr是一個陣列，當我們將它作為Map的鍵時，Map會將它轉換為一個物件，這樣就無法通過原來的arr來訪問對應的值了，所以這裡會返回undefined
+

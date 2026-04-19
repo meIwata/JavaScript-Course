@@ -1,5 +1,5 @@
 'use strict';
-/*
+
 const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 const openingHours = {
     [weekdays[3]]: {
@@ -17,7 +17,7 @@ const openingHours = {
         close: 12 + 12,
     },
 }
-
+/*
 const restaurant = {
     name: 'Classico Italiano',
     location: 'Via Angelo Tavanti 23, Firenze, Italy',
@@ -613,6 +613,7 @@ console.log(new Set('jonasschmedtmann').size); // 這裡的'jonasschmedtmann'是
 
  */
 
+
 const italianFoods = new Set([
     'pasta',
     'gnocchi',
@@ -654,6 +655,7 @@ const uniqueItalianAndMexicanFoods = italianFoods.symmetricDifference(mexicanFoo
 console.log('對稱差集: ', uniqueItalianAndMexicanFoods);
  */
 
+/*
 const rest = new Map();
 rest.set('name', 'Classico Italiano');
 rest.set(1, 'Firenze, Italy');
@@ -678,4 +680,36 @@ rest.set(document.querySelector('h1'), 'Heading');
 console.log(rest);
 console.log(rest.size);
 console.log(rest.get(arr)); // 這裡的arr是一個陣列，當我們將它作為Map的鍵時，Map會將它轉換為一個物件，這樣就無法通過原來的arr來訪問對應的值了，所以這裡會返回undefined
+*/
 
+const question = new Map([
+    ['question', 'What is the best programming language in the world?'],
+    [1, 'C'],
+    [2, 'Java'],
+    [3, 'JavaScript'],
+    ['correct', 3],
+    [true, 'Correct! 🎉'],
+    [false, 'Try again!']
+]);
+console.log(question);
+console.log(Object.entries(openingHours));
+const hoursMap = new Map(Object.entries(openingHours));
+console.log(hoursMap);
+
+// Quiz app
+console.log(question.get('question'));
+for (const [key, value] of question) {
+    if (typeof key === 'number') {
+        console.log(`Answer ${key}: ${value}`);
+    }
+}
+const answer = Number(prompt('Your answer'));
+console.log(answer);
+
+console.log(question.get(question.get('correct') === answer));
+
+// Convert map to array
+console.log([...question]);
+console.log(question.entries());
+console.log([...question.keys()]);
+console.log([...question.values()]);

@@ -729,7 +729,7 @@ Let's continue with our football betting app! This time, we have a map with a lo
 
 GOOD LUCK 😀
 */
-
+/*
 const gameEvents = new Map([
     [17, '⚽️ GOAL'],
     [36, '🔁 Substitution'],
@@ -767,3 +767,45 @@ for (const [min, event] of gameEvents) {
     const half = min <= 45 ? 'FIRST' : 'SECOND';
     console.log(`[${half} HALF] ${min}: ${event}`);
 }
+*/
+
+const airline = 'TAP Air Portugal';
+const plane = 'A320';
+console.log(plane[0]);
+console.log(plane[1]);
+console.log(plane[2]);
+console.log('B737'[0]);
+
+console.log(airline.length);
+console.log('B737'.length);
+
+console.log(airline.indexOf('r')); // indexOf方法傳回指定值在字串中首次出現的位置，如果沒有找到則傳回-1
+console.log(airline.lastIndexOf('r')); // lastIndexOf方法傳回指定值在字串中最後一次出現的位置，如果沒有找到則傳回-1
+console.log(airline.indexOf('Portugal')); // indexOf方法可以用來找出子字串在字串中的位置，如果找到了就回傳子字串的起始位置，否則回傳-1
+
+console.log(airline.slice(4)); // slice方法提取字串的一部分，並傳回一個新的字串，參數是起始位置和結束位置（不包括結束位置），如果只有一個參數，則提取到字串的末尾
+console.log(airline.slice(4, 7)); // 提取從索引4到索引7（不包括索引7）的字串，即'Air'
+console.log(airline.slice(0, airline.indexOf(' '))); // 提取從索引0到第一個空格的字串，即'TAP'
+console.log(airline.slice(airline.lastIndexOf(' ') + 1)); // 提取從最後一個空格的下一個索引到字串末尾的字串，即'Portugal'
+
+console.log(airline.slice(-2)); // slice方法也可以接受負數作為參數，這時候負數表示從字串的末尾開始計算索引，例如-2表示從字串的末尾開始計算，向前數兩個索引，即提取最後兩個字母'AL'
+console.log(airline.slice(1, -1)); // 提取從索引1到倒數第一個索引的字串，即'AP Air Portuga'
+
+const checkMiddleSeat = function (seat) {
+    // B 和 E 是中間座位
+    const s = seat.slice(-1);
+    if (s === 'B' || s === 'E') {
+        console.log('You got the middle seat 😬');
+    } else {
+        console.log('You got lucky 😎');
+    }
+}
+checkMiddleSeat('11B');
+checkMiddleSeat('23C');
+checkMiddleSeat('3E');
+
+console.log(new String('jonas')); // 這裡的new String('jonas')會創建一個String物件，這個物件有一些方法，例如slice、indexOf等，這些方法可以用來操作字串)
+console.log(typeof new String('jonas')); // 這裡的typeof new String('jonas')會返回'object'，因為new String('jonas')創建了一個String物件，而不是一個原始字串
+console.log(typeof new String('jonas').slice(1));
+
+

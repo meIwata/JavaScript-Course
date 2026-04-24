@@ -769,6 +769,7 @@ for (const [min, event] of gameEvents) {
 }
 */
 
+/*
 const airline = 'TAP Air Portugal';
 const plane = 'A320';
 console.log(plane[0]);
@@ -808,4 +809,63 @@ console.log(new String('jonas')); // 這裡的new String('jonas')會創建一個
 console.log(typeof new String('jonas')); // 這裡的typeof new String('jonas')會返回'object'，因為new String('jonas')創建了一個String物件，而不是一個原始字串
 console.log(typeof new String('jonas').slice(1));
 
+*/
 
+const airline = 'TAP Air Portugal';
+console.log(airline.toLowerCase());
+console.log(airline.toUpperCase());
+
+// Fix capitalization in name
+const passenger = 'jOnAS'; // Jonas
+const passengerLower = passenger.toLowerCase();
+const passengerCorrect =
+    passengerLower[0].toUpperCase() + passengerLower.slice(1);
+console.log(passengerCorrect);
+
+// Comparing emails
+const email = 'hello@jonas.io';
+const loginEmail = 'Hello@Jonas.Io \n';
+
+// const lowerEmail = loginEmail.toLowerCase();
+// const trimmedEmail = lowerEmail.trim();
+// console.log(trimmedEmail);
+
+const normalizedEmail = loginEmail.toLowerCase().trim();
+console.log(normalizedEmail);
+console.log(email === normalizedEmail);
+
+
+// Replacing
+const priceGB = '288,97£';
+const priceUS = priceGB.replace('£', '$').replace(',', '.');
+console.log(priceUS);
+
+const announcement =
+    'All passengers come to boarding door 23. Boarding door 23!';
+console.log(announcement.replace('door', 'gate')); // 這裡的replace方法只會替換第一個出現的'board'，所以第二個'board'不會被替換
+console.log(announcement.replaceAll('door', 'gate')); // 這裡的replaceAll方法會替換所有出現的'board'，所以兩個'board'都會被替換
+
+console.log(announcement.replace(/door/g, 'gate'));
+
+// Booleans
+const plane = 'Airbus A320neo';
+console.log(plane.includes('A320')); // includes方法用來判斷字串中是否包含指定的子字串，如果包含則返回true，否則返回false
+console.log(plane.includes('Boeing'));
+console.log(plane.startsWith('Airb')); // startsWith方法用來判斷字串是否以指定的子字串開頭，如果是則返回true，否則返回false
+
+if (plane.startsWith('Airbus') && plane.endsWith('neo')) {
+    console.log('Part of the NEW Airbus family');
+}
+
+// Practice exercise
+const checkBaggage = function (items) {
+    const baggage = items.toLowerCase();
+    if (baggage.includes('knife') || baggage.includes('gun')) {
+        console.log('You are NOT allowed on board');
+    } else {
+        console.log('Welcome aboard!');
+    }
+}
+checkBaggage('I have a laptop, some Food and a pocket Knife');
+checkBaggage('Socks and camera');
+checkBaggage('Got some snacks and a gun for protection');
